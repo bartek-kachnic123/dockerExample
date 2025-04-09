@@ -13,7 +13,7 @@ fun main(args: Array<String>){
 
     val bot = DiscordBot(botConfig)
 
-    if (args.size == 2 && args[0] == "-m") {
+    if (args.size > 1 && args[0] == "-m") {
         val message = args.sliceArray(1 until args.size).joinToString(" ")
 
         runBlocking {
