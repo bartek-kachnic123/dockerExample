@@ -2,6 +2,8 @@ package com.example.discordbot.client
 
 import com.example.discordbot.commands.CommandFactory
 import com.example.discordbot.config.DiscordBotConfiguration
+import com.example.discordbot.controller.CategoryController
+import com.example.discordbot.data.Category
 import discord4j.common.util.Snowflake
 import discord4j.core.DiscordClient
 import discord4j.core.GatewayDiscordClient
@@ -35,6 +37,7 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
 
     private val discordClient = DiscordClient.create(config.token);
     private val commandFactory = CommandFactory()
+    private val categoryController = CategoryController()
 
     suspend fun sendMessage(message: String): HttpResponse {
         val response: HttpResponse = client.post("${config.apiUrl}/channels/${config.channelId}/messages") {
@@ -55,8 +58,9 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
     fun handleEvents() {
         val gateway = discordClient.login().block() ?: return
         val sendCommand = commandFactory.createSendCommand()
+        val categoriesCommand = commandFactory.createCategoriesCommand()
 
-        registerCommands(gateway.restClient, listOf(sendCommand))
+        registerCommands(gateway.restClient, listOf(sendCommand, categoriesCommand))
 
         setEvents(gateway)
 
@@ -74,6 +78,10 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
                     println("Reveived: $message")
                     return event.reply("Odpowiedź została odebrana.").withEphemeral(true)
 
+                }
+                else if (event.commandName == "categories") {
+                    val categoriesData = categoryController.getCategoryNames().joinToString("\n")
+                    return event.reply(categoriesData)
                 }
                 return Mono.empty()
             }

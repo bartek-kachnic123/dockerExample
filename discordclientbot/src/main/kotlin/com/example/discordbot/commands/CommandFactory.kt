@@ -22,4 +22,13 @@ class CommandFactory {
 
         return sendCommand;
     }
+
+    fun createCategoriesCommand(): ImmutableApplicationCommandRequest {
+        val categoriesCommand = ApplicationCommandRequest.builder()
+            .name("categories")
+            .description("Get categories data")
+            .build()
+
+        return categoriesCommand;
+    }
 }
