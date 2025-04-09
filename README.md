@@ -12,3 +12,12 @@ Kod: [docker](https://github.com/bartek-kachnic123/dockerExample/tree/main/docke
 ✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/91593bae4abe9439eb45b6db3e66d84568937f9a)
 
 Kod: [scala](https://github.com/bartek-kachnic123/dockerExample/tree/main/play-scala)
+
+## Zadanie 3 Ktor
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/96a4109a2dbe472fa47408f50e82ddc5984e1657)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/65b2a67127765d0664d7df7b9c0dbdf16d91c6e2)  
+✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/c39bcc721e14a2d6c827a0f6b4f317d22bc0997f)  
+✅ 4.5 wymaganie 4 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/6163487570a91228add0f90649a237fb253c9fcc)
+
+Kod: [discordbot](https://github.com/bartek-kachnic123/dockerExample/tree/main/discordclientbot)
