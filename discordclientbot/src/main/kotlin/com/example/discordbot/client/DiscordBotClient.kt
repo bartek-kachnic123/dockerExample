@@ -1,15 +1,27 @@
 package com.example.discordbot.client
 
+import com.example.discordbot.commands.CommandFactory
+import com.example.discordbot.config.DiscordBotConfiguration
+import discord4j.common.util.Snowflake
+import discord4j.core.DiscordClient
+import discord4j.core.GatewayDiscordClient
+import discord4j.core.event.ReactiveEventAdapter
+import discord4j.core.event.domain.interaction.ChatInputInteractionEvent
+import discord4j.core.`object`.command.ApplicationCommandInteractionOption
+import discord4j.core.`object`.command.ApplicationCommandInteractionOptionValue
+import discord4j.discordjson.json.ApplicationCommandRequest
+import discord4j.rest.RestClient
+import discord4j.rest.interaction.GuildCommandRegistrar
 import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
-import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
-
-import com.example.discordbot.config.DiscordBotConfiguration;
-import io.ktor.client.engine.cio.*
 import kotlinx.serialization.json.Json
+import reactor.core.publisher.Mono
+
 
 class DiscordBot(private val config: DiscordBotConfiguration) {
 
@@ -20,6 +32,9 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
             })
         }
     }
+
+    private val discordClient = DiscordClient.create(config.token);
+    private val commandFactory = CommandFactory()
 
     suspend fun sendMessage(message: String): HttpResponse {
         val response: HttpResponse = client.post("${config.apiUrl}/channels/${config.channelId}/messages") {
@@ -34,12 +49,49 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
             """)
         }
 
-        return response;
+        return response
     }
 
-    fun close() {
+    fun handleEvents() {
+        val gateway = discordClient.login().block() ?: return
+        val sendCommand = commandFactory.createSendCommand()
+
+        registerCommands(gateway.restClient, listOf(sendCommand))
+
+        setEvents(gateway)
+
+    }
+
+    private fun setEvents(gateway: GatewayDiscordClient) {
+        gateway.on(object : ReactiveEventAdapter() {
+
+            override fun onChatInputInteraction(event: ChatInputInteractionEvent): Mono<Void> {
+                if (event.commandName == "send") {
+                    val eventMessage = event.interaction.commandInteraction.get()
+                    val message = eventMessage.getOption("message").flatMap(ApplicationCommandInteractionOption::getValue)
+                        .map(ApplicationCommandInteractionOptionValue::asString).get()
+
+                    println("Reveived: $message")
+                    return event.reply("Odpowiedź została odebrana.").withEphemeral(true)
+
+                }
+                return Mono.empty()
+            }
+        }).blockLast()
+    }
+
+    private fun registerCommands(restClient: RestClient, list: List<ApplicationCommandRequest>) {
+        GuildCommandRegistrar.create(restClient, list)
+            .registerCommands(Snowflake.of(config.guildId))
+            .doOnError { e -> println("Unable to create guild command: $e") }
+            .onErrorResume { Mono.empty() }
+            .blockLast()
+    }
+
+    fun clean() {
         client.close()
     }
 }
+
 
 
