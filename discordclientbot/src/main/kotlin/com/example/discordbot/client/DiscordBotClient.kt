@@ -3,7 +3,7 @@ package com.example.discordbot.client
 import com.example.discordbot.commands.CommandFactory
 import com.example.discordbot.config.DiscordBotConfiguration
 import com.example.discordbot.controller.CategoryController
-import com.example.discordbot.data.Category
+import com.example.discordbot.controller.ProductController
 import discord4j.common.util.Snowflake
 import discord4j.core.DiscordClient
 import discord4j.core.GatewayDiscordClient
@@ -38,6 +38,7 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
     private val discordClient = DiscordClient.create(config.token);
     private val commandFactory = CommandFactory()
     private val categoryController = CategoryController()
+    private val productController = ProductController()
 
     suspend fun sendMessage(message: String): HttpResponse {
         val response: HttpResponse = client.post("${config.apiUrl}/channels/${config.channelId}/messages") {
@@ -59,8 +60,9 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
         val gateway = discordClient.login().block() ?: return
         val sendCommand = commandFactory.createSendCommand()
         val categoriesCommand = commandFactory.createCategoriesCommand()
+        val categoryCommand = commandFactory.createCategoryCommand()
 
-        registerCommands(gateway.restClient, listOf(sendCommand, categoriesCommand))
+        registerCommands(gateway.restClient, listOf(sendCommand, categoriesCommand, categoryCommand))
 
         setEvents(gateway)
 
@@ -82,6 +84,23 @@ class DiscordBot(private val config: DiscordBotConfiguration) {
                 else if (event.commandName == "categories") {
                     val categoriesData = categoryController.getCategoryNames().joinToString("\n")
                     return event.reply(categoriesData)
+                }
+                else if (event.commandName == "category") {
+                    val eventMessage = event.interaction.commandInteraction.get()
+                    val categoryName = eventMessage.getOption("name").flatMap(ApplicationCommandInteractionOption::getValue)
+                        .map(ApplicationCommandInteractionOptionValue::asString).get()
+
+                    val categoryId = categoryController.getCategoryIdByName(categoryName)
+                        ?: return event.reply("Category name not found!").withEphemeral(true)
+
+                    val products = productController.getProductsById(categoryId)
+
+                    if (products.isEmpty()) {
+                        return event.reply("Products not found!").withEphemeral(true)
+                    }
+
+                    val productsData = productController.getProductsNames(products).joinToString("\n")
+                    return event.reply(productsData)
                 }
                 return Mono.empty()
             }

@@ -31,4 +31,20 @@ class CommandFactory {
 
         return categoriesCommand;
     }
+
+    fun createCategoryCommand(): ImmutableApplicationCommandRequest {
+        val categoryCommand = ApplicationCommandRequest.builder()
+            .name("category")
+            .description("Get category products")
+            .addOption(
+                ApplicationCommandOptionData.builder()
+                    .name("name")
+                    .description("name of category")
+                    .type(ApplicationCommandOption.Type.STRING.value)
+                    .required(true)
+                    .build())
+            .build()
+
+        return categoryCommand;
+    }
 }
