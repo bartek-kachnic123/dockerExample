@@ -21,3 +21,10 @@ Kod: [scala](https://github.com/bartek-kachnic123/dockerExample/tree/main/play-s
 ✅ 4.5 wymaganie 4 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/6163487570a91228add0f90649a237fb253c9fcc)
 
 Kod: [discordbot](https://github.com/bartek-kachnic123/dockerExample/tree/main/discordclientbot)
+
+## Zadanie 4 Echo
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/5a7560699e8477101819f8d671df2d23e2db8921)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/09210149c5042a46bd3699e63728ee9cba7c4999)  
+
+Kod: [echo](https://github.com/bartek-kachnic123/dockerExample/tree/main/echo)
