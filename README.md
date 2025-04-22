@@ -24,7 +24,7 @@ Kod: [discordbot](https://github.com/bartek-kachnic123/dockerExample/tree/main/d
 
 ## Zadanie 4 Echo
 
-✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/5a7560699e8477101819f8d671df2d23e2db8921)  
-✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/09210149c5042a46bd3699e63728ee9cba7c4999)  
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/7ff2ef71d847e832f93ce79c3476b777df526c3e)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/7ff2ef71d847e832f93ce79c3476b777df526c3e)  
 
 Kod: [echo](https://github.com/bartek-kachnic123/dockerExample/tree/main/echo)
