@@ -1,18 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useCart } from '../context/CartContext.jsx';
 
-const Payments = ({ selectedProducts }) => {
+const Payments = () => {
+    const { selectedProducts } = useCart();
     const [loading, setLoading] = useState(false);
 
     function generateUniqueId() {
-        return  Math.floor(Math.random() * (2_000_000_000));
+        return Math.floor(Math.random() * 2_000_000_000);
     }
+
     const handleSubmit = async () => {
         setLoading(true);
 
         const productIds = selectedProducts.map(product => product.id);
         const cart = {
             id: generateUniqueId(),
-            productIds: productIds
+            productIds
         };
 
         try {
@@ -34,19 +37,6 @@ const Payments = ({ selectedProducts }) => {
 
     return (
         <div>
-            <h2>Podsumowanie płatności</h2>
-            {selectedProducts.length === 0 ? (
-                <p>Nie wybrano żadnych produktów.</p>
-            ) : (
-                <ul>
-                    {selectedProducts.map((product, index) => (
-                        <li key={index}>
-                            <strong>{product.name}</strong> - {product.price} PLN
-                        </li>
-                    ))}
-                </ul>
-            )}
-
             <button onClick={handleSubmit} disabled={loading}>
                 {loading ? 'Przetwarzanie...' : 'Złóż zamówienie'}
             </button>

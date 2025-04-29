@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Payments from './Payments';
+import { useCart } from '../context/CartContext';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
-    const [selectedProducts, setSelectedProducts] = useState([]);
+    const { addProduct } = useCart();
 
     useEffect(() => {
         fetch('/products')
@@ -12,10 +12,6 @@ export default function Products() {
             .catch(err => console.error('Błąd podczas pobierania produktów:', err));
     }, []);
 
-    const addProductToCart = (product) => {
-        setSelectedProducts((prevState) => [...prevState, product]);
-    };
-
     return (
         <div>
             <h2>Lista produktów</h2>
@@ -23,12 +19,10 @@ export default function Products() {
                 {products.map(product => (
                     <li key={product.id}>
                         <strong>{product.name}</strong> - {product.price} PLN
-                        <button onClick={() => addProductToCart(product)}>Dodaj do płatności</button>
+                        <button onClick={() => addProduct(product)}>Dodaj do koszyka</button>
                     </li>
                 ))}
             </ul>
-
-            <Payments selectedProducts={selectedProducts} />
         </div>
     );
 }
