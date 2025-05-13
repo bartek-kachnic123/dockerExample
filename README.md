@@ -36,3 +36,10 @@ Kod: [echo](https://github.com/bartek-kachnic123/dockerExample/tree/main/echo)
 ✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/99a06a2b00ca6265f514d9dece9678764b0d9e53)  
 
 Kod: [react](https://github.com/bartek-kachnic123/dockerExample/tree/main/frontend-react)
+
+## Zadanie 6 Testy
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/949cba311902d757d6ebee1dd56c2896091a8e2a)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/949cba311902d757d6ebee1dd56c2896091a8e2a)  
+
+Kod: [Testy](https://github.com/bartek-kachnic123/dockerExample/tree/main/tests)
