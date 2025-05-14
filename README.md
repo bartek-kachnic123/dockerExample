@@ -47,5 +47,9 @@ Kod: [Testy](https://github.com/bartek-kachnic123/dockerExample/tree/main/tests)
 ## Zadanie 7 Sonar
 
 ✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/304cf1046a105dc5d0a1cf4d836415c0fe81395c)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/2188cfc4810f7567f3879dc1c150149538ed933b)  
+✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/2188cfc4810f7567f3879dc1c150149538ed933b)  
+✅ 4.5 wymaganie 4 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/2188cfc4810f7567f3879dc1c150149538ed933b)
 
 Kod: [Sonar](https://github.com/bartek-kachnic123/dockerExample/tree/main/sonar)
+
