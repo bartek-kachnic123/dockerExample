@@ -7,7 +7,8 @@ import javax.inject._
 import scala.collection.mutable.ListBuffer
 
 @Singleton
-class CategoryController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class CategoryController @Inject() (cc: ControllerComponents)
+    extends AbstractController(cc) {
 
   implicit val categoryFormat: OFormat[Category] = Json.format[Category]
 
@@ -24,7 +25,8 @@ class CategoryController @Inject()(cc: ControllerComponents) extends AbstractCon
   def getCategory(id: Int): Action[AnyContent] = Action {
     categories.find(_.id == id) match {
       case Some(category) => Ok(Json.toJson(category))
-      case None => NotFound(Json.obj("error" -> s"Category with ID $id not found"))
+      case None =>
+        NotFound(Json.obj("error" -> s"Category with ID $id not found"))
     }
   }
 

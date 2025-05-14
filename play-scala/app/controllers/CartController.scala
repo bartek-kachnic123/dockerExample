@@ -7,13 +7,14 @@ import javax.inject._
 import scala.collection.mutable.ListBuffer
 
 @Singleton
-class CartController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class CartController @Inject() (cc: ControllerComponents)
+    extends AbstractController(cc) {
 
   implicit val cartFormat: OFormat[Cart] = Json.format[Cart]
 
   private val carts = ListBuffer(
     Cart(1, ListBuffer(1, 2)),
-    Cart(2, ListBuffer(3)),
+    Cart(2, ListBuffer(3))
   )
 
   def getAllCarts: Action[AnyContent] = Action {

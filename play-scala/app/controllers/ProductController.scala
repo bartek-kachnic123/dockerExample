@@ -7,7 +7,8 @@ import javax.inject._
 import scala.collection.mutable.ListBuffer
 
 @Singleton
-class ProductController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class ProductController @Inject() (cc: ControllerComponents)
+    extends AbstractController(cc) {
 
   implicit val productFormat: OFormat[Product] = Json.format[Product]
 
@@ -24,7 +25,8 @@ class ProductController @Inject()(cc: ControllerComponents) extends AbstractCont
   def getProduct(id: Int): Action[AnyContent] = Action {
     products.find(_.id == id) match {
       case Some(product) => Ok(Json.toJson(product))
-      case None => NotFound(Json.obj("error" -> s"Product with ID $id not found"))
+      case None =>
+        NotFound(Json.obj("error" -> s"Product with ID $id not found"))
     }
   }
 
