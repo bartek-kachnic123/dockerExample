@@ -53,3 +53,12 @@ Kod: [Testy](https://github.com/bartek-kachnic123/dockerExample/tree/main/tests)
 
 Kod: [Sonar](https://github.com/bartek-kachnic123/dockerExample/tree/main/sonar)
 
+## Zadanie 8 OAuth
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
+✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
+✅ 4.5 wymaganie 4 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
+✅ 5.0 wymaganie 5 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
+
+Kod: [OAuth](https://github.com/bartek-kachnic123/dockerExample/tree/main/oauth)
