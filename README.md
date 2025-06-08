@@ -62,3 +62,11 @@ Kod: [Sonar](https://github.com/bartek-kachnic123/dockerExample/tree/main/sonar)
 ✅ 5.0 wymaganie 5 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/98d833887d5e70fe9d8edd677d6d0d168e104801)  
 
 Kod: [OAuth](https://github.com/bartek-kachnic123/dockerExample/tree/main/oauth)
+
+## Zadanie 9 LLM
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/f95e15981b2d28229bd363eec7c180892fe5f7ca)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/f95e15981b2d28229bd363eec7c180892fe5f7ca)  
+✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/f95e15981b2d28229bd363eec7c180892fe5f7ca)
+
+Kod: [LLM](https://github.com/bartek-kachnic123/dockerExample/tree/main/llmchat)
