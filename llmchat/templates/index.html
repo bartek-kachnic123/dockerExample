@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LLaMA Chat</title>
+  <link rel="stylesheet" href="/static/css/index.css" />
+</head>
+<body>
+  <h2>Chat with LLaMA (via Ollama)</h2>
+  <div id="chatBox"></div>
+  <div id="inputArea">
+    <input type="text" id="userInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <div class="radio-group">
+  <strong>Start Conversation:</strong><br />
+  <label><input type="radio" name="startOption" value="Can you help me plan my day?"> Plan my day</label>
+  <label><input type="radio" name="startOption" value="I need help with something technical."> Tech support</label>
+  <label><input type="radio" name="startOption" value="Can you tell me a fun fact?"> Fun fact</label>
+  <label><input type="radio" name="startOption" value="Let's talk about productivity tips."> Productivity tips</label>
+  <label><input type="radio" name="startOption" value="What’s new in the world today?"> What's new today?</label>
+</div>
+<div class="radio-group">
+  <strong>End:</strong><br />
+  <label><input type="radio" name="endOption" value="Can you summarize that in one sentence?"> Short summary</label>
+  <label><input type="radio" name="endOption" value="Could you explain that in more detail before we finish?"> Detailed explanation</label>
+  <label><input type="radio" name="endOption" value="List the key points we covered."> Key takeaways</label>
+  <label><input type="radio" name="endOption" value="Rephrase your last answer simply before we wrap up."> Simplify answer</label>
+  <label><input type="radio" name="endOption" value="Give a brief closing thought."> Brief closing thought</label>
+</div>
+
+  <script src="/static/js/chat.js"></script>
+</body>
+</html>
