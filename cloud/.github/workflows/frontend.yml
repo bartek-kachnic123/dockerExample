@@ -1,0 +1,26 @@
+name: Build & Deploy Frontend
+
+on:
+  push:
+    paths:
+      - 'frontend-react/**'
+      - 'cloud/frontend.Dockerfile'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Log in to ACR
+      uses: azure/docker-login@v1
+      with:
+        login-server: playreactregistry.azurecr.io
+        username: ${{ secrets.AZURE_ACR_USERNAME }}
+        password: ${{ secrets.AZURE_ACR_PASSWORD }}
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -f cloud/frontend.Dockerfile -t playreactregistry.azurecr.io/frontend:latest .
+        docker push playreactregistry.azurecr.io/frontend:latest
