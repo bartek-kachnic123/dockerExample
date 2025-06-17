@@ -1,4 +1,4 @@
-# React JS + Vite
+# React JS
 To run app use:
 ```bash
 vite
