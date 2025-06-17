@@ -11,5 +11,5 @@ RUN apt update && apt install -y unzip && unzip play-scala-1.0-SNAPSHOT.zip && r
 WORKDIR /app/play-scala-1.0-SNAPSHOT
 RUN chmod +x ./bin/play-scala
 
-EXPOSE 9000
-CMD ["./bin/play-scala"]
+EXPOSE 80
+CMD ["bin/play-scala", "-Dplay.http.secret.key=${PLAY_SECRET_KEY}", "-Dhttp.port=80"]
