@@ -12,4 +12,4 @@ WORKDIR /app/play-scala-1.0-SNAPSHOT
 RUN chmod +x ./bin/play-scala
 
 EXPOSE 80
-CMD ["bin/play-scala", "-Dplay.http.secret.key=${PLAY_SECRET_KEY}", "-Dhttp.port=80"]
+ENTRYPOINT ["/bin/sh", "-c", "bin/play-scala -Dplay.http.secret.key=$PLAY_SECRET_KEY -Dhttp.port=80"]
