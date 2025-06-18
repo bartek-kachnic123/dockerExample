@@ -3,6 +3,7 @@
 ✅ 4.5 wymaganie 4 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/cdf01513ca2b85ad47b9b3a324e3d3197b20aaba)
 
 Kod: [docker](https://github.com/bartek-kachnic123/dockerExample/tree/main/docker)
+| [Docker Hub](https://hub.docker.com/r/bartekk123/image-python-java8-kotlin)
 
 
 ## Zadanie 2 Scala
@@ -70,3 +71,10 @@ Kod: [OAuth](https://github.com/bartek-kachnic123/dockerExample/tree/main/oauth)
 ✅ 4.0 wymaganie 3 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/f95e15981b2d28229bd363eec7c180892fe5f7ca)
 
 Kod: [LLM](https://github.com/bartek-kachnic123/dockerExample/tree/main/llmchat)
+
+## Zadanie 10 CLOUD
+
+✅ 3.0 wymaganie 1 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/4be99be6d27306a0b544d3ee67b9bd3511a8a928)  
+✅ 3.5 wymaganie 2 [Link do commita](https://github.com/bartek-kachnic123/dockerExample/commit/54d9ffeced53e6f42d269011a936279c182657e7)  
+
+Kod: [cloud](https://github.com/bartek-kachnic123/dockerExample/tree/main/cloud)
