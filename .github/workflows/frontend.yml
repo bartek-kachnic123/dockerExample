@@ -22,5 +22,9 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -f cloud/frontend.Dockerfile -t playreactregistry.azurecr.io/frontend:latest .
+        docker build \
+          --no-cache \
+          -f cloud/frontend.Dockerfile \
+          --build-arg VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }} \
+          -t playreactregistry.azurecr.io/frontend:latest .
         docker push playreactregistry.azurecr.io/frontend:latest

@@ -5,6 +5,9 @@ const Payments = () => {
     const { selectedProducts } = useCart();
     const [loading, setLoading] = useState(false);
 
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || '';
+    const apiUrl = `${BACKEND_URL}/carts`;
+
     function generateUniqueId() {
         return Math.floor(Math.random() * 2_000_000_000);
     }
@@ -19,7 +22,7 @@ const Payments = () => {
         };
 
         try {
-            const response = await fetch('/carts', {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -22,5 +22,5 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -f cloud/backend.Dockerfile -t playreactregistry.azurecr.io/backend:latest .
+        docker build --no-cache -f cloud/backend.Dockerfile -t playreactregistry.azurecr.io/backend:latest .
         docker push playreactregistry.azurecr.io/backend:latest

@@ -1,7 +1,7 @@
 FROM hseeberger/scala-sbt:17.0.2_1.6.2_3.1.1 AS builder
 WORKDIR /app
 COPY ../play-scala ./
-RUN sbt dist
+RUN sbt clean dist
 
 FROM openjdk:17-jdk-slim
 WORKDIR /app
